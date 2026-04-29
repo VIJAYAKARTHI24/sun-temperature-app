@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SunTemp Location Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="weather-panel" aria-live="polite">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">SunTemp</p>
+            <h1>Location Temperature</h1>
+          </div>
+          <div class="unit-toggle" role="group" aria-label="Temperature unit">
+            <button class="unit-button active" type="button" data-unit="c">C</button>
+            <button class="unit-button" type="button" data-unit="f">F</button>
+          </div>
+        </header>
+
+        <form class="search-card" id="searchForm">
+          <label class="sr-only" for="locationInput">Location</label>
+          <div class="search-row">
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="field-icon">
+              <path d="M10.8 18.2a7.4 7.4 0 1 1 5.2-12.6 7.4 7.4 0 0 1-5.2 12.6Zm0-2a5.4 5.4 0 1 0 0-10.8 5.4 5.4 0 0 0 0 10.8Zm6.4.2 4.2 4.2-1.4 1.4-4.2-4.2 1.4-1.4Z" />
+            </svg>
+            <input id="locationInput" name="location" autocomplete="off" placeholder="Search city, town, or landmark" />
+            <button class="icon-button" type="button" id="geoButton" aria-label="Use current location" title="Use current location">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M13 22h-2v-3.1A7 7 0 0 1 5.1 13H2v-2h3.1A7 7 0 0 1 11 5.1V2h2v3.1A7 7 0 0 1 18.9 11H22v2h-3.1A7 7 0 0 1 13 18.9V22Zm-1-5a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-2.7a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6Z" />
+              </svg>
+            </button>
+            <button class="search-button" type="submit">Check</button>
+          </div>
+          <div class="recent-strip" id="recentStrip" aria-label="Recent locations"></div>
+        </form>
+
+        <section class="hero-weather" id="weatherHero">
+          <div class="sun-scene" aria-hidden="true">
+            <div class="sun-core"></div>
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+          </div>
+          <div class="hero-copy">
+            <p class="place" id="placeName">Finding a sunny reading...</p>
+            <p class="time-note" id="timeNote">Live temperature for a selected location</p>
+            <div class="temperature-row">
+              <span class="temperature" id="temperature">--</span>
+              <span class="degree" id="degree">°C</span>
+            </div>
+            <p class="condition" id="condition">Search for a place to begin.</p>
+          </div>
+        </section>
+
+        <section class="insight-grid" aria-label="Weather readings">
+          <article class="metric-card">
+            <span class="metric-label">Feels Like</span>
+            <strong id="feelsLike">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Sun Status</span>
+            <strong id="sunStatus">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">UV Max</span>
+            <strong id="uvIndex">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Humidity</span>
+            <strong id="humidity">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Cloud Cover</span>
+            <strong id="cloudCover">--</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Wind</span>
+            <strong id="windSpeed">--</strong>
+          </article>
+        </section>
+
+        <section class="sun-strip" aria-label="Sunlight details">
+          <div>
+            <span>Sunrise</span>
+            <strong id="sunrise">--</strong>
+          </div>
+          <div>
+            <span>Sunset</span>
+            <strong id="sunset">--</strong>
+          </div>
+          <div>
+            <span>Daily Range</span>
+            <strong id="dailyRange">--</strong>
+          </div>
+        </section>
+
+        <p class="status-line" id="statusLine" role="status"></p>
+      </section>
+    </main>
+  </body>
+</html>
