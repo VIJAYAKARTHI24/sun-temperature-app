@@ -12,4 +12,3 @@ If you prefer a local URL, run this folder's local server:
 node server.mjs
 ```
 
-The app uses the free Open-Meteo weather and geocoding APIs directly from the browser, so no API key is needed.
